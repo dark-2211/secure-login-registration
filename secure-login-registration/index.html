@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="form-action 'none'">
+  <title>Login &amp; Register — Fieldnote</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="masthead">
+    <div class="wordmark">
+      <svg viewBox="0 0 32 32" width="34" height="34" aria-hidden="true">
+        <rect width="32" height="32" rx="7" fill="#204038"/>
+        <path d="M9 9h14v3H12v4h8v3h-8v5H9z" fill="#eff2d6"/>
+      </svg>
+      Fieldnote
+    </div>
+    <span class="edition">Interface study / 01</span>
+  </header>
+
+  <main class="auth">
+    <aside class="cover" aria-hidden="true">
+      <span class="cover-label"><i></i> FIELDNOTE / ACCOUNT</span>
+      <svg class="cover-art" viewBox="0 0 400 370" fill="none">
+        <defs>
+          <pattern id="dots" width="16" height="16" patternUnits="userSpaceOnUse">
+            <circle cx="1" cy="1" r="1" fill="#a8bfac" opacity=".38"/>
+          </pattern>
+        </defs>
+        <rect x="15" y="15" width="370" height="340" fill="url(#dots)"/>
+        <circle cx="200" cy="181" r="146" stroke="#92b29b" opacity=".55"/>
+        <circle cx="200" cy="181" r="113" stroke="#92b29b" opacity=".45"/>
+        <path d="M54 181h292M200 35v292" stroke="#92b29b" stroke-dasharray="4 6" opacity=".6"/>
+        <rect x="130" y="91" width="140" height="184" rx="69" fill="#263f38" stroke="#b7cdaa" stroke-width="1.4"/>
+        <rect x="143" y="104" width="114" height="158" rx="56" fill="#bbcb9d"/>
+        <path d="M145 199c39-4 76-40 90-75 14 12 22 32 22 52v29c0 31-25 57-57 57-31 0-56-25-57-55z" fill="#e9edc9"/>
+        <circle cx="200" cy="174" r="13" fill="#234038"/>
+        <path d="m195 178-4 27h18l-4-27z" fill="#234038"/>
+        <circle cx="311" cy="87" r="5" fill="#dbe6b3"/>
+        <circle cx="86" cy="268" r="4" fill="#dbe6b3"/>
+        <path d="M59 54h22m-11-11v22m250 251h22m-11-11v22" stroke="#b7cdaa"/>
+      </svg>
+      <div class="cover-footer">
+        <p>Good to<br>see you here.</p>
+        <span>FIG. 01</span>
+      </div>
+    </aside>
+
+    <section class="panel" aria-labelledby="page-title">
+      <div class="panel-content">
+        <div class="switcher" role="group" aria-label="Choose a form">
+          <button type="button" data-mode="login" aria-pressed="true" aria-controls="login-form" disabled>Login</button>
+          <button type="button" data-mode="register" aria-pressed="false" aria-controls="register-form" disabled>Register</button>
+        </div>
+        <h1 id="page-title">Welcome back.</h1>
+        <p id="intro" class="intro">Log in to your Fieldnote workspace.</p>
+
+        <form id="login-form" method="post" novalidate>
+          <fieldset disabled aria-label="Login details">
+            <div class="field">
+              <label for="login-email">Email address</label>
+              <input id="login-email" type="email" autocomplete="username" placeholder="you@example.com" aria-describedby="login-email-error" required>
+              <p class="error" id="login-email-error" aria-live="polite"></p>
+            </div>
+            <div class="field">
+              <label for="login-password">Password</label>
+              <div class="password">
+                <input id="login-password" type="password" autocomplete="current-password" minlength="8" placeholder="Enter your password" aria-describedby="login-password-error" required>
+                <button type="button" class="reveal" aria-controls="login-password" aria-label="Show login password">Show</button>
+              </div>
+              <p class="error" id="login-password-error" aria-live="polite"></p>
+            </div>
+            <button type="submit" class="primary">Log in <span aria-hidden="true">↗</span></button>
+          </fieldset>
+        </form>
+
+        <form id="register-form" method="post" novalidate hidden>
+          <fieldset disabled aria-label="Registration details">
+            <div class="field">
+              <label for="register-email">Email address</label>
+              <input id="register-email" type="email" autocomplete="username" placeholder="you@example.com" aria-describedby="register-email-error" required>
+              <p class="error" id="register-email-error" aria-live="polite"></p>
+            </div>
+            <div class="field">
+              <label for="register-password">Password</label>
+              <div class="password">
+                <input id="register-password" type="password" autocomplete="new-password" minlength="8" placeholder="Create a password" aria-describedby="password-hint register-password-error" required>
+                <button type="button" class="reveal" aria-controls="register-password" aria-label="Show new password">Show</button>
+              </div>
+              <p class="hint" id="password-hint">Use at least 8 characters.</p>
+              <p class="error" id="register-password-error" aria-live="polite"></p>
+            </div>
+            <div class="field">
+              <label for="register-confirm">Confirm password</label>
+              <div class="password">
+                <input id="register-confirm" type="password" autocomplete="new-password" placeholder="Re-enter your password" aria-describedby="register-confirm-error" required>
+                <button type="button" class="reveal" aria-controls="register-confirm" aria-label="Show password confirmation">Show</button>
+              </div>
+              <p class="error" id="register-confirm-error" aria-live="polite"></p>
+            </div>
+            <button type="submit" class="primary">Create account <span aria-hidden="true">↗</span></button>
+          </fieldset>
+        </form>
+        <p id="feedback" class="feedback" role="status"></p>
+        <p class="demo-note">Demo only. Details are not sent or saved.</p>
+        <noscript><p class="demo-note">Enable JavaScript to try the forms.</p></noscript>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
